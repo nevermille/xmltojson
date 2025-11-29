@@ -14,6 +14,7 @@ use serde_json::{to_value, Map, Value};
 use std::io::BufRead;
 use std::mem::take;
 
+#[allow(unused)]
 macro_rules! debug {
     ($($x:tt)*) => (
         #[cfg(feature = "log")] {
