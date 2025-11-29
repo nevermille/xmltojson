@@ -7,13 +7,20 @@
 #[macro_use]
 extern crate serde_json;
 
-use log::*;
 use quick_xml::escape::resolve_predefined_entity;
 use quick_xml::events::Event;
 use quick_xml::Reader;
 use serde_json::{to_value, Map, Value};
 use std::io::BufRead;
 use std::mem::take;
+
+macro_rules! debug {
+    ($($x:tt)*) => (
+        #[cfg(feature = "log")] {
+            log::debug!($($x)*)
+        }
+    )
+}
 
 #[derive(Debug)]
 pub struct Error {}
